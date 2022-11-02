@@ -17,6 +17,5 @@ class MainActivity : AppCompatActivity(), KoinComponent {
             val result = viewModel.getNews()
             findViewById<TextView>(R.id.tekst).text = result.body()
         }
-        // proba 2
     }
 }
