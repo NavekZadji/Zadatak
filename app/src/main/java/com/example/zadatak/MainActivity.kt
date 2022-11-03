@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
         pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                Toast.makeText(this@MainActivity, "onPageSelected", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@MainActivity, "onPageSelected", Toast.LENGTH_SHORT).show()
             }
         })
 
