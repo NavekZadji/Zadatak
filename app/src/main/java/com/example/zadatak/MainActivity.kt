@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*       // ovaj dio crasha aplikaciju, treba to rijesiti s viewholderom a ne ovak
+        /*       // ovaj dio crasha aplikaciju, treba to rijesiti u PagerViewHolder i pridijeliti stringove kak spada a ne ovak
         lifecycleScope.launch {
             val nasloviTopVijesti = viewModel.getNews()
             val probno = nasloviTopVijesti.body()?.articles?.elementAt(0)?.title
