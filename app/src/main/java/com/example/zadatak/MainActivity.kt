@@ -22,17 +22,17 @@ class MainActivity : AppCompatActivity(), KoinComponent {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*       // ovaj dio crasha aplikaciju, treba to rijesiti u PagerViewHolder i pridijeliti stringove kak spada a ne ovak
         lifecycleScope.launch {
             val nasloviTopVijesti = viewModel.getNews()
-            val probno = nasloviTopVijesti.body()?.articles?.elementAt(0)?.title
-            if (probno != null) {
-                Log.v("Probno:", probno)
-            }
+            val probno0 = nasloviTopVijesti.body()!!.articles[0].title
+            val probno1 = nasloviTopVijesti.body()!!.articles[1].title
+            val probno2 = nasloviTopVijesti.body()!!.articles[2].title
+            val probno3 = nasloviTopVijesti.body()!!.articles[3].title
+            val probno4 = nasloviTopVijesti.body()!!.articles[4].title
 
-        }*/
+            Log.v("Probno:", probno0)
 
-            val data = arrayOf("aa", "bb", "cc", "dd")
+            val data = arrayOf(probno0, probno1, probno2, probno3, probno4)
             pager.adapter = ViewPagerAdapter(data)
             // prepoznal je xml objekt tek dok sam dodal v gradle apply plugin: 'com.android.application'  apply plugin: 'kotlin-android'  apply plugin: 'kotlin-android-extensions'
             // i jos v MainActivity import kotlinx.android.synthetic.main.activity_main.*
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
                     //Toast.makeText(this@MainActivity, "onPageSelected", Toast.LENGTH_SHORT).show()
                 }
             })
-
+        }
 
     }
 }
