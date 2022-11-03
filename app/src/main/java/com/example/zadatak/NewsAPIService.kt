@@ -10,5 +10,5 @@ interface NewsAPIService {
         @Query("country") country: String,
         @Query("category") category: String,
         @Query("apiKey") apiKey: String
-    ): Response<String>
+    ): Response<VestiNadskup>
 }

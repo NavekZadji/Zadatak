@@ -6,7 +6,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class NewsViewModel(private val newsRepository: NewsRepository) : ViewModel() {
-    suspend fun getNews(): Response<String> {
+    suspend fun getNews(): Response<VestiNadskup> {
             return newsRepository.fetchNewsFromAPI()
     }
 }
