@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity(), KoinComponent {
 
             val nasloviSveVijesti = viewModel.getNewsSve()
             val probnoSve0 = nasloviSveVijesti.body()!!.articles[0].title
-            val probnoSve1 = nasloviSveVijesti.body()!!.articles[0].title
-            val probnoSve2 = nasloviSveVijesti.body()!!.articles[0].title
-            val probnoSve3 = nasloviSveVijesti.body()!!.articles[0].title
-            val probnoSve4 = nasloviSveVijesti.body()!!.articles[0].title
+            val probnoSve1 = nasloviSveVijesti.body()!!.articles[1].title
+            val probnoSve2 = nasloviSveVijesti.body()!!.articles[2].title
+            val probnoSve3 = nasloviSveVijesti.body()!!.articles[3].title
+            val probnoSve4 = nasloviSveVijesti.body()!!.articles[4].title
 
             val dataSve = arrayOf(probnoSve0,probnoSve1,probnoSve2,probnoSve3,probnoSve4)
 
