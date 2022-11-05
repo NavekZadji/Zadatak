@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity(), KoinComponent {
             Log.v("Probno:", probno0)
         }
 
-        var tab_toolbar = findViewById<Toolbar>(R.id.toolbar)
-        var tab_viewpager = findViewById<ViewPager>(R.id.tab_viewpager)
-        var tab_tablayout = findViewById<TabLayout>(R.id.tab_tablayout)
+        val tab_toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val tab_viewpager = findViewById<ViewPager>(R.id.tab_viewpager)
+        val tab_tablayout = findViewById<TabLayout>(R.id.tab_tablayout)
 
         setSupportActionBar(tab_toolbar)
         setupViewPager(tab_viewpager)
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
     }
 
     private fun setupViewPager(viewpager: ViewPager) {
-        var adapter: ViewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
+        val adapter: ViewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 
         // LoginFragment is the name of Fragment and the Login
         // is a title of tab

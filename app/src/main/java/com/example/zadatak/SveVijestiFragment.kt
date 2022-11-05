@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.zadatak.databinding.SveVijestiBinding
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
+
 class SveVijestiFragment : Fragment() {
 
 

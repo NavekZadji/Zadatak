@@ -6,19 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zadatak.databinding.TopVijestiBinding
-import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
+
 class TopVijestiFragment : Fragment() {
 
 
@@ -44,6 +39,9 @@ class TopVijestiFragment : Fragment() {
             val naslov0 = topVijestiPrimjer.body()!!.articles[0].title
             val naslov1 = topVijestiPrimjer.body()!!.articles[1].title
             val naslov2 = topVijestiPrimjer.body()!!.articles[2].title
+
+            Log.v("Naslov0:",naslov0)
+
             val dataList = arrayListOf<String>(naslov0,naslov1,naslov2)
             val rvAdapter = RvAdapter(dataList)
             recyclerView.adapter = rvAdapter
