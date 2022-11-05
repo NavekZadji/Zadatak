@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
         }
 
         var tab_toolbar = findViewById<Toolbar>(R.id.toolbar)
-        var tab_viewpage = findViewById<ViewPager>(R.id.tab_viewpager)
+        var tab_viewpager = findViewById<ViewPager>(R.id.tab_viewpager)
         var tab_tablayout = findViewById<TabLayout>(R.id.tab_tablayout)
 
         setSupportActionBar(tab_toolbar)
@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity(), KoinComponent {
 
         // LoginFragment is the name of Fragment and the Login
         // is a title of tab
-        adapter.addFragment(TopVijestiFragment(), "Login")
-        adapter.addFragment(SveVijestiFragment(), "Signup")
+        adapter.addFragment(TopVijestiFragment(), "TopVijesti")
+        adapter.addFragment(SveVijestiFragment(), "SveVijesti")
 
         // setting adapter to view pager.
         viewpager.setAdapter(adapter)
