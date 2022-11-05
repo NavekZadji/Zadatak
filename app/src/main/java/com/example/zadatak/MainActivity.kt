@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity(), KoinComponent {
 
         // LoginFragment is the name of Fragment and the Login
         // is a title of tab
-        adapter.addFragment(TopVijestiFragment(), "TopVijesti")
-        adapter.addFragment(SveVijestiFragment(), "SveVijesti")
+        adapter.addFragment(TopVijestiFragment(), "Top Vijesti")
+        adapter.addFragment(SveVijestiFragment(), "Sve Vijesti")
 
         // setting adapter to view pager.
         viewpager.setAdapter(adapter)
