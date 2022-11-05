@@ -4,11 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
-import androidx.viewpager2.widget.ViewPager2
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.component.KoinComponent
 import kotlinx.android.synthetic.main.activity_main.*
+import androidx.annotation.Nullable
+import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 
 
 class MainActivity : AppCompatActivity(), KoinComponent {
@@ -22,29 +28,29 @@ class MainActivity : AppCompatActivity(), KoinComponent {
         lifecycleScope.launch {
             val nasloviTopVijesti = viewModel.getNews()
             val probno0 = nasloviTopVijesti.body()!!.articles[0].title
-            val probno1 = nasloviTopVijesti.body()!!.articles[1].title
-            val probno2 = nasloviTopVijesti.body()!!.articles[2].title
-            val probno3 = nasloviTopVijesti.body()!!.articles[3].title
-            val probno4 = nasloviTopVijesti.body()!!.articles[4].title
-
             Log.v("Probno:", probno0)
-
-            val data = arrayOf(probno0, probno1, probno2, probno3, probno4)
-            pager.adapter = ViewPagerAdapter(data)
-            // prepoznal je xml objekt tek dok sam dodal v gradle apply plugin: 'com.android.application'  apply plugin: 'kotlin-android'  apply plugin: 'kotlin-android-extensions'
-            // i jos v MainActivity import kotlinx.android.synthetic.main.activity_main.*
-            pager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-
-            val nasloviSveVijesti = viewModel.getNewsSve()
-            val probnoSve0 = nasloviSveVijesti.body()!!.articles[0].title
-            val probnoSve1 = nasloviSveVijesti.body()!!.articles[1].title
-            val probnoSve2 = nasloviSveVijesti.body()!!.articles[2].title
-            val probnoSve3 = nasloviSveVijesti.body()!!.articles[3].title
-            val probnoSve4 = nasloviSveVijesti.body()!!.articles[4].title
-
-            val dataSve = arrayOf(probnoSve0,probnoSve1,probnoSve2,probnoSve3,probnoSve4)
-
         }
 
+        var tab_toolbar = findViewById<Toolbar>(R.id.toolbar)
+        var tab_viewpage = findViewById<ViewPager>(R.id.tab_viewpager)
+        var tab_tablayout = findViewById<TabLayout>(R.id.tab_tablayout)
+
+        setSupportActionBar(tab_toolbar)
+        setupViewPager(tab_viewpager)
+        tab_tablayout.setupWithViewPager(tab_viewpager)
+
     }
+
+    private fun setupViewPager(viewpager: ViewPager) {
+        var adapter: ViewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
+
+        // LoginFragment is the name of Fragment and the Login
+        // is a title of tab
+        adapter.addFragment(TopVijestiFragment(), "Login")
+        adapter.addFragment(SveVijestiFragment(), "Signup")
+
+        // setting adapter to view pager.
+        viewpager.setAdapter(adapter)
+    }
+
 }

@@ -1,30 +1,46 @@
 package com.example.zadatak
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
+import android.os.Bundle
+import androidx.annotation.Nullable
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 
-class ViewPagerAdapter(private val data:Array<String>) : RecyclerView.Adapter<ViewPagerAdapter.PagerViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerViewHolder {
-        return PagerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_pager, parent, false))
+class ViewPagerAdapter : FragmentPagerAdapter {
+
+    // objects of arraylist. One is of Fragment type and
+    // another one is of String type.*/
+    private final var fragmentList1: ArrayList<Fragment> = ArrayList()
+    private final var fragmentTitleList1: ArrayList<String> = ArrayList()
+
+    // this is a secondary constructor of ViewPagerAdapter class.
+    public constructor(supportFragmentManager: FragmentManager)
+            : super(supportFragmentManager)
+
+    // returns which item is selected from arraylist of fragments.
+    override fun getItem(position: Int): Fragment {
+        return fragmentList1.get(position)
     }
 
-    override fun getItemCount(): Int {
-        return data.size
+    // returns which item is selected from arraylist of titles.
+    @Nullable
+    override fun getPageTitle(position: Int): CharSequence {
+        return fragmentTitleList1.get(position)
     }
 
-    override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
-        holder.bind(data[position])
+    // returns the number of items present in arraylist.
+    override fun getCount(): Int {
+        return fragmentList1.size
     }
 
-    inner class PagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        private val textView:TextView = itemView.findViewById(R.id.textView)
-
-        fun bind(data:String){
-            textView.text = data
-        }
+    // this function adds the fragment and title in 2 separate  arraylist.
+    fun addFragment(fragment: Fragment, title: String) {
+        fragmentList1.add(fragment)
+        fragmentTitleList1.add(title)
     }
 }
