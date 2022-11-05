@@ -34,6 +34,16 @@ class MainActivity : AppCompatActivity(), KoinComponent {
             // prepoznal je xml objekt tek dok sam dodal v gradle apply plugin: 'com.android.application'  apply plugin: 'kotlin-android'  apply plugin: 'kotlin-android-extensions'
             // i jos v MainActivity import kotlinx.android.synthetic.main.activity_main.*
             pager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+            val nasloviSveVijesti = viewModel.getNewsSve()
+            val probnoSve0 = nasloviSveVijesti.body()!!.articles[0].title
+            val probnoSve1 = nasloviSveVijesti.body()!!.articles[0].title
+            val probnoSve2 = nasloviSveVijesti.body()!!.articles[0].title
+            val probnoSve3 = nasloviSveVijesti.body()!!.articles[0].title
+            val probnoSve4 = nasloviSveVijesti.body()!!.articles[0].title
+
+            val dataSve = arrayOf(probnoSve0,probnoSve1,probnoSve2,probnoSve3,probnoSve4)
+
         }
 
     }

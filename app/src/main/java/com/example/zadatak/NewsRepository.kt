@@ -15,5 +15,8 @@ class NewsRepository() {
     suspend fun fetchNewsFromAPI(): Response<VestiNadskup> {
         return retrofit.fetchNews(country = "US", category = "business", apiKey = "9965ce12862f40b8ab5d125fb4d4488e")
     }
+    suspend fun fetchNewsSveFromAPI(): Response<VestiNadskup> {
+        return retrofit.fetchNewsSve(country = "US", category = "business", apiKey = "9965ce12862f40b8ab5d125fb4d4488e")
+    }
 
 }

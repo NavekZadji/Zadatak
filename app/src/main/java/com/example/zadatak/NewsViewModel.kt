@@ -9,4 +9,7 @@ class NewsViewModel(private val newsRepository: NewsRepository) : ViewModel() {
     suspend fun getNews(): Response<VestiNadskup> {
             return newsRepository.fetchNewsFromAPI()
     }
+    suspend fun getNewsSve(): Response<VestiNadskup> {
+        return newsRepository.fetchNewsSveFromAPI()
+    }
 }

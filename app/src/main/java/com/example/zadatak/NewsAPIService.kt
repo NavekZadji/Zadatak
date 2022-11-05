@@ -11,4 +11,10 @@ interface NewsAPIService {
         @Query("category") category: String,
         @Query("apiKey") apiKey: String
     ): Response<VestiNadskup>
+    @GET("/v2/everything")
+    suspend fun fetchNewsSve(
+        @Query("country") country: String,
+        @Query("category") category: String,
+        @Query("apiKey") apiKey: String
+    ): Response<VestiNadskup>
 }
