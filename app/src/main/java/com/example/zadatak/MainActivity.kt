@@ -25,12 +25,6 @@ class MainActivity : AppCompatActivity(), KoinComponent {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        lifecycleScope.launch {
-            val nasloviTopVijesti = viewModel.getNews()
-            val probno0 = nasloviTopVijesti.body()!!.articles[0].title
-            Log.v("Probno:", probno0)
-        }
-
         val tab_toolbar = findViewById<Toolbar>(R.id.toolbar)
         val tab_viewpager = findViewById<ViewPager>(R.id.tab_viewpager)
         val tab_tablayout = findViewById<TabLayout>(R.id.tab_tablayout)
