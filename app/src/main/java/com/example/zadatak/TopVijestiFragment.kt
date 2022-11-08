@@ -36,14 +36,14 @@ class TopVijestiFragment : Fragment() {
 
         lifecycleScope.launch {
             val topVijestiPrimjer = viewModel.getNews()
-            val naslov0 = topVijestiPrimjer.body()!!.articles[0].title
-            val naslov1 = topVijestiPrimjer.body()!!.articles[1].title
-            val naslov2 = topVijestiPrimjer.body()!!.articles[2].title
+            val nasloviTop = arrayListOf<String>()
 
-            Log.v("Naslov0:",naslov0)
+            for (i in 0..19) {
 
-            val dataList = arrayListOf<String>(naslov0,naslov1,naslov2)
-            val rvAdapter = RvAdapter(dataList)
+                nasloviTop.add(topVijestiPrimjer.body()!!.articles[i].title)
+            }
+
+            val rvAdapter = RvAdapter(nasloviTop)
             recyclerView.adapter = rvAdapter
         }
 

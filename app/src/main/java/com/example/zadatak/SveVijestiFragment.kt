@@ -37,17 +37,13 @@ class SveVijestiFragment : Fragment() {
         lifecycleScope.launch {
 
             val sveVijestiPrimjer = viewModel.getNewsSve()
-            val naslov0 = sveVijestiPrimjer.body()!!.articles[0].title
-            val naslov1 = sveVijestiPrimjer.body()!!.articles[1].title
-            val naslov2 = sveVijestiPrimjer.body()!!.articles[2].title
-            val naslov3 = sveVijestiPrimjer.body()!!.articles[3].title
-            val naslov4 = sveVijestiPrimjer.body()!!.articles[4].title
+            val nasloviSve = arrayListOf<String>()
+            for (i in 0..19) {
 
-            Log.v("Sve vijesti Naslov0:",naslov0)
+                nasloviSve.add(sveVijestiPrimjer.body()!!.articles[i].title)
+            }
 
-
-            val dataList = arrayListOf<String>(naslov0,naslov1,naslov2,naslov3,naslov4)
-            val rvAdapter = RvAdapter(dataList)
+            val rvAdapter = RvAdapter(nasloviSve)
             recyclerView.adapter = rvAdapter
         }
 
